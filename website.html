@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WT Website</title>
+	<link rel="stylesheet" type="text/css" href="webstyles.css">
+	
+</head>
+<body >
+	
+	<h1 align="center"><b>WT PROJECT</b></h1>
+	<img src="maniw.jpg" alt="Ganapathi" width="100px" height="100px" id="image" onmouseover="change();" onmouseout="unchange();">
+	<div id="menu">
+		<ul>
+			<li style="background-color: #fff200;" ><a href="website.html">Home<img src="home.png" height="30px" width="30px" align="center"></a></li>
+			<li>
+				<a href="#">Exams<span>&#9660;</span></a>
+				<ul>
+					<li style="background-color: #fff200;" onclick="log();" ><a href="#">Login</a></li>
+					<li onclick="registration();"> <a href="#">Registration</a></li>
+				</ul>
+			</li>
+			<li style="background-color: #fff200;">
+				<a href="#">Branches<span>&#9660;</span></a>
+				<ul>
+					<li><a href="#">ECE</a></li>
+					<li style="background-color: #fff200;"><a href="#">CIVIL</a></li>
+					<li><a href="#">MME</a></li>
+					<li style="background-color: #fff200;">
+						<a href="#">CSE<span>&#9658;</span></a>
+						<ul>
+							<li onclick="faculty();"><a href="#">FACULTY</a></li>
+							<li style="background-color: #fff200;" onclick="student();"><a href="#">STUDENT</a></li>
+						</ul>
+					</li>				
+				</ul>
+			</li>
+			<li>
+				<a href="#">Contacts<span>&#9660;</span></a>
+				<ul>
+					<li style="background-color: #fff200;" onclick="address();"><a href="#">Address & Details</a></li>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+	<a href="#"><img src="line.png" width="70px" height="60px" id="lines"></a>
+	<!-- <div id="block" name="bloc" >
+
+		
+	</div> -->
+	<main>
+		<div id="slide" name="ss">
+		</div>
+
+
+		<div id="login">
+			<center>
+				<form action="bgcolor.html" method="post" onsubmit="return login();" >
+                    <h1><u>Login Page</u></h1>
+                    <b>User Name:</b><input type="text" name="m" placeholder="Enter your Name" title="Name" id="name" required="required"><label style="visibility: hidden;color: red;" id="labeln">Invalid Data... atleast 4 characters</label><br><br>
+                    <b>Password:</b><input type="password"  maxlength="8" id="pass" required="required"><label style="visibility: hidden;color: red;" id="labelp">Invalid Data... atleast 6 characters</label><br><br>
+                    <a href="#"><input type="submit" value="LOGIN" style="background-color: gray;" ></a>
+                </form>
+			</center>
+		</div> 
+
+		<div id="regis" align="center">
+			<center>
+				<form action="bgcolor.html" method="post" id="Form" onsubmit="return validate();">
+				<table id="t">
+					<h1>Registartion Form</h1>
+			 		<tr><td class="tc"><b>First Name:</b></td><td><input type="text" name="fn" id="first" required="required">
+			 			<label style="visibility: hidden;color: red;" id="label">Invalid Data... atleast 3 characters</label></td></tr>
+
+			 		<tr><td class="tc"><b>Last Name:</b></td><td><input type="text" name="sn" id="last" required="required"><label style="visibility: hidden;color: red;" id="labe">Invalid Data.. atleast 3 characters</label></td></tr>
+
+			 		<tr><td class="tc"><b>Middle Name:</b></td><td><input type="text" name="mn" id="middle" ><label style="visibility: hidden;color:red;" id="lab">Inavalid Data..</label> </td></tr>
+
+
+			 		<tr><td class="tc"><b>Full Name:</b></td><td><input type="text" name="FN" id="Full" readonly></td></tr>
+
+			 		<tr><td colspan="2">This registration form can be used by Indian or USA:</td><td></td></tr> 
+
+			 		<tr><td align="center">India:<input type="radio" name="I" id="ind"></td><td align="left">USA:<input type="radio" name="I" id="usa"></td><td></td><td></td></tr>
+
+			 		<tr><td class="tc"><b>Mobile Number:</b></td><td><input type="text" name="num" id="mobile"><label style="visibility:hidden;color: red;" id="us">Enter number in USA format</label><label style="visibility:hidden;color: red;" id="in">Enter number in Indian format & 10 digits only</label></td> </tr>
+
+            		<tr><td class="tc"><b>Password:</b></td><td><input type="password" name="p" id="pw" required="required"></td>
+            		<td><img src="eyeh.png" height="25px" width="35px" style="border-radius: 20px;" id="i" onclick="password();"></td>
+            		 <label  style="visibility: hidden;color: red;" id="pal">atleast 6 characters..</label></tr>
+            			
+
+            		<tr><td align="right"><b>Select two hobbies only:</b></td><td></td></tr>
+
+            		<tr><td align="right"><input type="checkbox" name="ch" id="rea"></td><td>Reading</td></tr>
+            		<tr><td align="right"><input type="checkbox" name="ch" id="sin"></td><td>Singing</td></tr>
+            		<tr><td align="right"><input type="checkbox" name="ch" id="dan"></td><td>Dancing</td></tr>
+            		<tr><td align="right"><input type="checkbox" name="ch" id="coo"></td><td>Cooking</td></tr>
+
+            		<tr><td class="tc"><b>Upload Photo:</b></td><td><input type="file" name="photo" id="pho" accept="img/png/jpg">
+            			<label style="visibility:hidden;color: red;" id="phot">Upload the file...</label></td></tr>
+
+            		<tr><td class="tc"><b>DOB:</b></td><td><input type="date" name="da" id="dob"></td></tr>
+
+            		<tr><td class="tc"><b>Hobbies:</b></td><td><input type="text" name="" id="fir"><input type="submit" name="" value="ADD"></tr></td> 
+            		<tr><td class="tc"><b>The Hobbies are:</b></td><td> <ul id="lists"><li>Cricket<button class="delete">X</button></li> </ul></td></tr>       
+            
+            		<tr><td align="right"><input type="checkbox" name="che" id="che" required="required">I agree to the terms of the company</td></tr>
+
+            		<tr><td align="right" style="font-size: 50px"><input type="reset" name="res" value="RESET"  id="reset" onclick="return conform();"></td><td align="center" style="font-size: 50px" ><input type="submit" value="submit" id="sub" onclick="time();"></td></tr>
+
+             		
+
+				</table>
+			</form>
+		</center>
+
+		</div>
+
+		<div id="slogin">
+			<center>
+				<form action="bgcolor.html" method="post" onsubmit="return studentlogin();" >
+                    <h1><u>Student Login Page</u></h1>
+                    <b>Student ID:</b><input type="text" name="m" placeholder="Enter your ID" title="Name" id="ID" required="required"><label style="visibility: hidden;color: red;" id="labeli">Invalid Data.</label><br><br>
+                    <b>Password:</b><input type="password"  maxlength="8" id="sp" required="required"><label style="visibility: hidden;color: red;" id="labelp">Invalid Data... atleast 6 characters</label><br><br>
+                    <a href="#"><input type="submit" value="LOGIN" style="background-color: gray;" ></a>
+                </form>
+				
+			</center>
+		</div>
+
+		<div id="flogin">
+				<center>
+				<form action="bgcolor.html" method="post" onsubmit="return facultylogin();" >
+                    <h1><u>Faculty Login Page</u></h1>
+                    <b>Faculty ID:</b><input type="text" name="m" placeholder="Enter your ID" title="Name" id="FID" required="required"><label style="visibility: hidden;color: red;" id="labelf">Invalid Data.</label><br><br>
+                    <b>Password:</b><input type="password"  maxlength="8" id="fp" required="required"><label style="visibility: hidden;color: red;" id="labelp">Invalid Data... atleast 6 characters</label><br><br>
+                    <a href="#"><input type="submit" value="LOGIN" style="background-color: gray;" ></a>
+                </form>
+				
+			</center>
+			
+		</div>
+
+		<div id="ad" align="center">
+				<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7639.355385709962!2d80.8200511718281!3d16.79270357509955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3675e5f312c661%3A0xab7189f421622491!2sIIIT%20Nuzvid%20Campus%2C%20Nuzividu%2C%20Andhra%20Pradesh%20521202!5e0!3m2!1sen!2sin!4v1657622324761!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+			
+		</div>
+
+	</main> 
+	
+	<aside>
+            <div  id="lside-body">
+            		<h3 align="center">STUDENT DETAILS</h3>
+            		<input id="filter" type="text" name="search" placeholder="search">
+            		<ul type="None" id="lside-list">
+                	 	<li id="i">N180351-Majjiga Lakshmi</li>
+                	 	<li id="i">N180371-Uchula Hasmitha</li>
+                	 	<li id="i">N180750-Yatham Bhargavi</li>
+                	 	<li id="i">N180749-Koppisetti Swathi</li>
+                	 	<li id="i">N180518-Uppada Soujanya</li>
+                	 	<li id="i">N180548-Koppisetti Sirisha</li>
+                	 	<li id="i">N180814-Syed Jareentaj</li>
+                	 	<li id="i">N180649-Magathala Kavyasri</li>
+                	 	<li id="i">N180636-Seera Bhargavi</li>
+                	 	<li id="i">N180872-Bhupathi Santhvana</li>
+                	 	<li id="i">N181164-V G K N Mani</li>
+                	 	<li id="i">N181128-Gollapalli Srilakshmi</li>
+                	 	<li id="i">N180015-Depuri Srilakshmi</li>
+                	 	<li id="i">N180140-Kasmikota Parvathi</li>
+                	 	<li id="i">N180114-Karinki Sindhuja</li>
+                	 	<li id="i">N180086-Mareedu Thrisaali</li>
+                	 	<li id="i">N180275-Talari Swaroopa</li>
+                	 	<li id="i">N180473-Alupana Devi</li>
+                	 	<li id="i">N180490-Siddantham Majulatha</li>
+                	 	<li id="i">N180798-Chowdula Lakshmi Prasanna</li>
+                	 	<li id="i">N180678-Sureddi Priyanka</li>
+                	 	<li id="i">N180789-Manikonda Gayathri</li>
+                	 	<li id="i">N180530-Kokkilagadda Neeraja</li>
+                	</ul>
+             </div>
+            <div id="rside-body">
+            	<h3 align="center">NOTIFICATIONS</h3><hr><hr>
+            	<marquee direction="up" scrollamount="3">
+            	<ul type="none" id="rside-list">
+            		<li>Mar 15 - <a href="https://rguktn.ac.in/downloads/Circular_Nuzvid_Mess_Timings.pdf" target="_blank"> Circular to Students regarding mess timings</a></li><hr>
+
+            		<li>May 13 - <a href="https://rguktn.ac.in/downloads/vidya%20deevena_instalment_final_circular9.pdf" target="_blank">Circular for Jagananna Vidya Deevena installment academic year 2021-2022</a></li><hr>
+
+            		<li>May 26 - <a href="https://rguktn.ac.in/downloads/Jagananna%20Vasathi%20Deevena%20-%20Circular-4.pdf" target="_blank">Circular for Jagananna VAsathi Deevena installment for Acedamic year 2021-2022</a></li><hr>
+
+            		<li>July 21 - <a href="#" target="_blank">Circular to Students regarding mid 2 exams</a></li><hr>
+
+            		<li>Dec 4 - <a href="https://rguktn.ac.in/downloads/Circular-RGUKT-Nuzvid-Students-COVID-19_Protocols.pdf" target="_blank">Circular to in-campus students regarding covid-19 protocols</a></li><hr>
+
+            		<li>June 8 - <a href="https://rguktn.ac.in/downloads/Circular-FoodCourt-%20Nuzvid-Students.pdf" target="_blank">Circular to students regarding food court</a></li><hr>
+            		
+            	</ul>
+            	</marquee>	
+            </div>
+    </aside>
+   
+	<footer id="main-footer">
+            <p><small><b>copy right &copy; 2021 #CSE Students</b></small></p>
+            <!-- <div class="foot">
+                View Count:
+                <img src="https://hitwebcounter.com/counter/counter.php?page=8005342&style=0001&nbdigits=6&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                                                                   
+            </div> -->
+            <a href="#top" id="bottom" ><img  align="right" src="uparrow.png" width="30px" height="22px"></img></a>
+    </footer>
+    <script type="text/javascript">
+		function change(){
+			document.getElementById("image").src="mani1.png";
+		}
+		function unchange(){
+			document.getElementById("image").src="maniw.jpg";
+		}
+		
+
+		//login form 
+
+		 function login()
+            {
+                var n=document.getElementById("name").value;
+                var r=/^[a-z,A-Z]{4,}$/;
+                if(n.length<4 || r.test(n)==false)
+                {
+                    document.getElementById("name").style.border="2px solid red";
+                    document.getElementById("labeln").style.visibility="visible";
+                    return false;
+                }
+
+                var p=document.getElementById("pass").value;
+                if(p.length<6)
+                {
+                    document.getElementById("pass").style.border="2px solid red";
+                    document.getElementById("labelp").style.visibility="visible";
+                    return false;
+                
+                }
+            }
+
+
+             function log(){
+				document.getElementById("menu").style.position="sticky";
+				document.getElementById("lside-body").style.visibility="hidden";
+				document.getElementById("rside-body").style.visibility="hidden";
+				document.getElementById("slide").style.visibility="hidden";
+				document.getElementById("login").style.visibility="visible";
+				document.getElementById("flogin").style.visibility="hidden";
+				document.getElementById("slogin").style.visibility="hidden";
+				document.getElementById("regis").style.visibility="hidden";
+			}
+
+			// registration form
+
+			function validate()
+
+		{
+			var f=document.getElementById("first").value;
+			var l=document.getElementById("last").value;
+			var m=document.getElementById("middle").value;
+			var FN=f+l;
+			document.getElementById("Full").value=FN;
+
+			var a=/^[a-z,A-Z]{3,}$/;
+			
+
+			// First Name , Last name,middle name
+
+			if(f.length<3||a.test(f)== false) 
+			{
+				//alert("Invalid data");
+				document.getElementById('first').style.border="3px solid red";
+				document.getElementById("label").style.visibility="visible";
+				return false;
+			}
+			if(l.length<3 ||a.test(l)== false )
+			{
+				document.getElementById("last").style.border="3px solid red";
+				document.getElementById("labe").style.visibility="visible";
+				return false;
+			}
+	
+			if( a.test(m)== false)
+			{
+				//alert("Invalid data");
+				document.getElementById("lab").style.visibility="visible";
+				return false;
+			}
+
+
+			//mobile number
+
+			var i=document.getElementById("ind").checked;
+			var u=document.getElementById("usa").checked;
+			var p=document.getElementById("mobile").value;
+
+			if(i == true)
+			{
+
+				var r=/^\d{10}$/;
+				if(r.test(p)== false)
+				{
+					//alert("Enter number in Indian format")
+					document.getElementById("mobile").style.border="3px solid red";
+					document.getElementById("in").style.visibility="visible";
+					return false;
+				}
+			}
+			else if(u == true)
+			{
+				var re=/^\d{3}\-\d{3}\-\d{4}$/;
+				if(re.test(p) == false)
+				{
+					//alert("Enter number in USA format");
+					document.getElementById("mobile").style.border="3px solid red";
+					document.getElementById("us").style.visibility="visible";
+					return false;
+				}
+			}
+			else
+			{
+				alert("You are not selected country");
+				return false;
+			}
+
+
+			//password
+
+			var pass=document.getElementById("pw").value;
+			if(pass.length<6)
+			{
+				document.getElementById("pw").style.border="3px solid red";
+				document.getElementById("pal").style.visibility="visible";
+				return false;
+				
+			}
+
+			//hobbies-checkboxes
+
+			var ch1=document.getElementById("rea").checked;
+			var ch2=document.getElementById("sin").checked;
+			var ch3=document.getElementById("dan").checked;
+			var ch4=document.getElementById("coo").checked;
+
+			var c=0;
+			var l=[ch1,ch2,ch3,ch4];
+			for(i=0;i<l.length;i++)
+			{
+				if(l[i]==true)
+				{
+					c=c+1;
+				}
+			}	
+			if(c<2)
+			{
+				alert("You have to select atleast 2 hobbies");
+				return false;
+			}
+
+
+			//photo size
+
+			if(document.getElementById('pho').files.length>0)
+			{
+				var s=document.getElementById('pho').files[0].size;
+				var size=(50*1024);
+				if(s>size)
+				{
+					alert("File size should be < 50kb");
+					return false;
+				}
+			}
+			else//(document.getElementById('pho').files.length)
+			{
+				document.getElementById("pho").style.border="3px solid red";
+				document.getElementById("phot").style.visibility="visible";
+				//$("#phot").fadeOut(3000);
+				return false;
+			}
+
+
+			
+
+
+		
+		}
+	
+
+		function password()
+		{
+			var v=document.getElementById("pw");
+			if(v.type==='password')
+			{
+				v.type='text';
+				document.getElementById("i").src="eyeopen.png";
+
+			}
+			else
+			{
+				v.type='password';
+				document.getElementById("i").src="eyeh.png";
+			}
+		}
+
+		function conform()
+		{
+			var conf=confirm("Do you want to reset?");
+			if(conf)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		var mf=document.getElementById("Form");
+		mf.addEventListener('submit',addItem,false);
+		//mf.addEventListener('submit',validate,false);
+		var lists=document.getElementById('lists');
+		lists.addEventListener("click",removeItem,false);
+		function addItem(e)
+		{
+			e.preventDefault();
+			var f=document.getElementById("fir").value;
+			var l=document.createElement("li");
+			var text=document.createTextNode(f);
+			l.appendChild(text);
+
+			var dbtn=document.createElement("button");
+			dbtn.setAttribute("class","delete");
+			var dtext=document.createTextNode("X");
+			dbtn.appendChild(dtext);
+
+			l.appendChild(dbtn);
+
+			 lists.appendChild(l);
+		}
+
+		function removeItem(e){
+			if(e.target.classList.contains('delete'))
+			{
+				//console.log("delete called")
+				if(confirm("Are u sure u want to delete?"))
+				{
+					var li=e.target.parentElement;
+					lists.removeChild(li);
+
+				}
+			}
+
+		}
+
+		function registration()
+		{
+				document.getElementById("menu").style.position="sticky";
+				document.getElementById("lside-body").style.visibility="hidden";
+				document.getElementById("rside-body").style.visibility="hidden";
+				document.getElementById("slide").style.visibility="hidden";
+				document.getElementById("login").style.visibility="hidden";
+				document.getElementById("flogin").style.visibility="hidden";
+				document.getElementById("slogin").style.visibility="hidden";
+				document.getElementById("regis").style.visibility="visible";
+
+		}
+
+		 function studentlogin()
+            {
+                var i=document.getElementById("ID").value;
+                var r=/^[n|N](18)[0|1]\d{3}$/;
+                if(i.length<4 || r.test(i)==false)
+                {
+                    document.getElementById("ID").style.border="2px solid red";
+                    document.getElementById("labeli").style.visibility="visible";
+                    return false;
+                }
+
+                var sp=document.getElementById("sp").value;
+                if(sp.length<6)
+                {
+                    document.getElementById("sp").style.border="2px solid red";
+                    document.getElementById("labelp").style.visibility="visible";
+                    return false;
+                
+                }
+            }
+
+           function student()
+           {
+           		document.getElementById("menu").style.position="sticky";
+				document.getElementById("lside-body").style.visibility="hidden";
+				document.getElementById("rside-body").style.visibility="hidden";
+				document.getElementById("slide").style.visibility="hidden";
+				document.getElementById("login").style.visibility="hidden";
+				document.getElementById("regis").style.visibility="hidden";
+				document.getElementById("flogin").style.visibility="hidden";
+				document.getElementById("slogin").style.visibility="visible";
+           }
+
+           function facultylogin()
+           {
+           		var i=document.getElementById("FID").value;
+                var r=/^[n|N](18)[0|1]\d{3}$/;
+                if(i.length<4 || r.test(i)==false)
+                {
+                    document.getElementById("FID").style.border="2px solid red";
+                    document.getElementById("labelf").style.visibility="visible";
+                    return false;
+                }
+
+                var sp=document.getElementById("fp").value;
+                if(sp.length<6)
+                {
+                    document.getElementById("fp").style.border="2px solid red";
+                    document.getElementById("labelp").style.visibility="visible";
+                    return false;
+                
+                }
+           }
+
+           function faculty()
+           {
+           		document.getElementById("menu").style.position="sticky";
+				document.getElementById("lside-body").style.visibility="hidden";
+				document.getElementById("rside-body").style.visibility="hidden";
+				document.getElementById("slide").style.visibility="hidden";
+				document.getElementById("login").style.visibility="hidden";
+				document.getElementById("regis").style.visibility="hidden";
+				document.getElementById("slogin").style.visibility="hidden";
+				document.getElementById("flogin").style.visibility="visible";
+
+           }
+
+           function address()
+           {
+           		document.getElementById("menu").style.position="sticky";
+				document.getElementById("lside-body").style.visibility="hidden";
+				document.getElementById("rside-body").style.visibility="hidden";
+				document.getElementById("slide").style.visibility="hidden";
+				document.getElementById("login").style.visibility="hidden";
+				document.getElementById("regis").style.visibility="hidden";
+				document.getElementById("slogin").style.visibility="hidden";
+				document.getElementById("flogin").style.visibility="hidden";
+				document.getElementById("ad").style.visibility="visible";
+
+
+           }
+           function SeaIte(e)
+           {
+           		var text=e.target.value.toLowerCase();
+           		var items=document.getElementById("i");
+           		Array.from(items).forEach((item)=>
+           		{
+           			itemValue=item.firstChild.textContent;
+           			if(itemValue.toLowerCase().indexOf(text)!=-1)
+           			{
+           				item.style.display="block";
+           			}
+           			else
+           			{
+           				item.style.display="none";
+           			}
+           		})
+           }
+
+           var fi=document.getElementById("filter");
+           fi.addEventListener('keyup',SeaIte,false);
+	</script>
+
+</body>
+</html>
